@@ -6,3 +6,6 @@ dist
 .env
 *.log
 .workbuddy
+# python
+__pycache__/
+*.pyc
