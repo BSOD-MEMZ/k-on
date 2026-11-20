@@ -36,3 +36,31 @@ public/
 
 - 没有后端。QQ 号码是复制按钮，不做提交接口。
 - 站点是单页，锚点跳转（`#about` `#slots` `#join` `#contact`）。
+
+## 构建与部署
+
+线上：<https://k-on.zznfzx.com>（nginx 直接供 `nuxt generate` 的静态产物，无 node 常驻进程）。
+
+```bash
+npm ci --omit=dev
+./scripts/deploy.sh          # generate -> 体积优化 -> rsync -> 冒烟
+```
+
+`scripts/deploy.sh` 里按顺序做三件事：构建静态站、产物体积优化、同步到 `$DEST`（默认
+`/var/www/k-on.zznfzx.com`）。也可以分步跑：
+
+```bash
+npm run generate
+python3 scripts/subset-font.py     # 标题字按实际用字裁剪：1.9M -> 45K
+python3 scripts/optimize-images.py # PNG -> WebP：1.6M -> 230K
+```
+
+优化只改 `.output/` 产物，**不动仓库里的源字体和 PNG**，所以 `git pull` 不会被本地改动干扰；
+改完文案重新构建会自动按新用字重新裁剪，不需要手工维护子集。首屏总传输 3.8M → 372K。
+
+依赖：`apt install nodejs npm webp python3-fonttools python3-brotli`（node >= 20）。
+小内存机器（1G~2G）构建时建议 `NODE_OPTIONS=--max-old-space-size=1024`，deploy.sh 默认已带。
+
+nginx 侧要点：80 只留 ACME 校验 + 301；`/_nuxt/` 缓存 1 年、HTML `no-cache`；
+`gzip_types` 要显式写 `text/css application/javascript`——Debian 默认的 `nginx.conf`
+只开了 `gzip on`，不写类型等于只压 html。
