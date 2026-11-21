@@ -102,22 +102,18 @@
         <div class="wrap">
           <div class="section-head reveal">
             <h2 class="display">我们是<br />軽音部</h2>
-            <span class="en">Who we are</span>
-            <p>
-              一个刚成立的社团，一群把课间十分钟都用来哼歌的人。设备不多，野心不小；
-              水平参差，热爱齐平。
-            </p>
+            <span class="en">僕らは軽音部！！！</span>
           </div>
 
           <div class="cards">
             <article class="card reveal">
               <span class="no">01</span>
-              <h3>每周一起排练</h3>
+              <h3>全新社团</h3>
               <p>
-                周三第九节课，体育馆。定好一首歌就开始磨，从和弦到合奏，从跑调到能听——
-                排练室的门永远给肯来的人留着。
+                这是个新成立的社团，追求新的音乐风格，涵盖 J-POP，术力口等等！
+                资历不深但信心不小！
               </p>
-              <span class="tag">Rehearsal</span>
+              <span class="tag">prenew</span>
             </article>
             <article class="card reveal">
               <span class="no">02</span>
@@ -151,7 +147,6 @@
           <div class="section-head reveal">
             <h2 class="display">正在找人</h2>
             <span class="en">Open slots</span>
-            <p>不要求技术，只要求出现。零基础也欢迎，我们从头教。</p>
           </div>
 
           <div class="slots">
@@ -243,13 +238,15 @@
               <small>— 軽音部 · 超魔丸バスターズ</small>
             </div>
 
-            <div class="idcard reveal" style="background: var(--g-50)">
-              <div class="role">Meeting</div>
-              <div class="who" style="font-size: 21px; line-height: 1.5">周三第九节课 · 体育馆</div>
-              <p style="margin: 14px 0 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.9">
-                第一次来找不到人？站在体育馆门口找那张绿色的海报，我们就在旁边。
+            <div class="idcard reveal dlcard">
+              <div class="role">Join us</div>
+              <div class="who" style="font-size: 23px; line-height: 1.4">入部报名表</div>
+              <p class="dl-note">
+                可以打印后手写填好交给部长，也可以直接填在电子稿上发给社长
               </p>
-              <a class="btn" href="#join" style="margin-top: 20px">不见不散 ♪</a>
+              <a class="btn" href="/files/entry-form.docx" download="轻音部入部报名表.docx">
+                下载报名表 <span class="dl-meta">DOCX · 50 KB</span>
+              </a>
             </div>
           </div>
         </div>
@@ -290,9 +287,9 @@ const tickerItems = [
 ]
 
 const slots = [
-  { name: '主唱', en: 'VOCAL', desc: '敢开口就够', hot: false },
-  { name: '吉他', en: 'GUITAR', desc: '节奏 / 主音都行', hot: true },
-  { name: '贝斯', en: 'BASS', desc: '低音最缺人', hot: true },
+  { name: '主唱', en: 'VOCAL', desc: '初音未来', hot: true },
+  { name: '吉他', en: 'GUITAR', desc: '节奏 / 主音都行', hot: false },
+  { name: '贝斯', en: 'BASS', desc: 'buzzz…', hot: false },
   { name: '键盘', en: 'KEYBOARD', desc: '社团有琴', hot: false },
   { name: '鼓', en: 'DRUMS', desc: '慢一点也没关系', hot: false }
 ]
